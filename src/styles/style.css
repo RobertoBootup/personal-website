@@ -22,6 +22,9 @@ header .header-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    max-width: 1100px; /* Keep header content from stretching too wide */
+    margin: 0 auto;    /* Center the header container horizontally */
 }
 
 header h1 {
@@ -61,6 +64,11 @@ header .nav-links a {
     color: #000000;
     text-decoration: none;
     font-size: 18px; /* Increased font size */
+}
+
+/* Make the current page link in the header stand out (e.g., "Projects" on Projects page) */
+header .nav-links a.active {
+    font-size: 20px;
 }
 
 header .nav-links a:hover {
@@ -395,14 +403,17 @@ footer {
 @media (max-width: 499px) {
 
     header {
-        width: 555px; /* Make the header span the full width */
-        padding: 10px 0; /* Add some vertical padding */
+        width: 100%;        /* Match the viewport width */
+        padding: 10px 0;    /* Vertical padding */
+        display: flex;
+        justify-content: center; /* Center header contents horizontally */
     }
+
     .header-container {
         display: flex;
-        flex-direction: column; /* Stack the content vertically */
-        align-items: center; /* Center-align the content */
-        width: 100%; /* Ensure the container spans the full width */
+        flex-direction: column;  /* Stack the content vertically */
+        align-items: center;     /* Center-align the content */
+        width: 100%;             /* Ensure the container spans the full width */
     }
     .nav-links li {
         margin: 5px 10px; /* Add spacing between the links */
@@ -451,14 +462,19 @@ footer {
     }
 
     .about-me, .about-site {
-        /* Add padding for better spacing */
+        width: 100%;          /* Full-width sections stacked vertically */
+        max-width: 100%;
+        margin: 10px auto;    /* Even spacing above/below */
+        padding: 0;
     }
 
     .about-me p, .about-site p {
-        font-size: 0.9rem; /* Adjust paragraph font size */
-        text-align: justify;/* Justify text for better readability */
-        line-height: 1.5;
-        width: 95%; /* Added percentage unit and semicolon */
+        font-size: 0.95rem;   /* Comfortable mobile size */
+        text-align: left;     /* Easier to read on narrow screens */
+        line-height: 1.6;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     footer {
@@ -476,10 +492,16 @@ footer {
     text-align: center;
 }
 
+.projects-section h2 {
+    font-size: 2.2rem; /* Make the "Projects" heading stand out */
+    margin-bottom: 15px;
+}
+
 .projects-section p {
     max-width: 800px;
     margin: 10px auto 30px auto;
     line-height: 1.6;
+    font-size: 20px;
 }
 
 .projects-list {
@@ -534,4 +556,5 @@ footer {
 /* FIX PROJECTS PAGE LAYOUT */
 .projects-page main {
     display: block !important;
+    padding-top: 9px; /* Reduce vertical gap between header and projects content */
 }

@@ -38,6 +38,13 @@
             margin-bottom: 20px;
             color: #000000;
         }
+
+        /* Make the "My Interests" heading smaller on small screens */
+        @media (max-width: 499px) {
+            .about-interests h2 {
+                font-size: 1.4rem;
+            }
+        }
     
         .about-interests p {
             font-size: 1.2rem;
@@ -63,7 +70,7 @@
                     <span class="bar"></span>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="about.html">My Interests</a></li> <!-- Updated label -->
+                    <li><a href="about.html" class="active">My Interests</a></li> <!-- Updated label -->
                     <li><a href="resume.html">Resume</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="contact.html">Contact</a></li>
