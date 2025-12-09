@@ -428,7 +428,8 @@ footer {
 
     body {
         font-size: 14px; /* Reduce the base font size */
-        padding: 10px; /* Add some padding for better spacing */
+        margin: 0;
+        padding: 0;      /* Remove outer padding so header touches screen edges */
     }
 
     h1 {
@@ -461,20 +462,62 @@ footer {
         border-radius: 50%; /* Make it circular */
     }
 
-    .about-me, .about-site {
-        width: 100%;          /* Full-width sections stacked vertically */
-        max-width: 100%;
-        margin: 10px auto;    /* Even spacing above/below */
-        padding: 0;
+    /* Home page (mobile): stack content vertically in one centered column */
+    .home-page main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
     }
 
-    .about-me p, .about-site p {
-        font-size: 0.95rem;   /* Comfortable mobile size */
-        text-align: left;     /* Easier to read on narrow screens */
+    /* Home page containers: let sections control their own width */
+    .home-page .profile-container {
+        width: 100%;             /* Full width wrapper */
+        max-width: 100%;
+        margin: 10px 0;
+        box-sizing: border-box;
+    }
+
+    .home-page .about-me p,
+    .home-page .about-site p {
+        font-size: 0.95rem;
+        text-align: left;
         line-height: 1.6;
         width: 100%;
         max-width: 100%;
-        margin: 0 auto;
+        margin: 0;              /* Same distance to container edges */
+    }
+
+    .home-page .about-site > div {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Remove extra inner padding on home-page profile container so its box
+       lines up with About This Site container horizontally */
+    .home-page .profile-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Contact page: stack intro and form vertically, centered */
+    .contact-page main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px 10px;  /* Extra space below header */
+    }
+
+    /* Contact page: keep intro and form evenly padded and centered */
+    .contact-intro,
+    .contact-form {
+        width: 95%;               /* Slightly wider: smaller side gaps */
+        max-width: 600px;
+        margin: 10px auto;        /* Equal gap left and right, stacked vertically */
+        box-sizing: border-box;
     }
 
     footer {
